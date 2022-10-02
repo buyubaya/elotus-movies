@@ -1,0 +1,56 @@
+@import 'styles';
+
+.container {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 2px;
+  overflow: hidden;
+  padding: 24px;
+}
+
+.thumbnailArea {
+  width: 150px;
+}
+
+.img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.contentArea {
+  flex: 1;
+  padding-left: 24px;
+}
+
+.titleArea {
+  margin-bottom: 0;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.score {
+  margin: 10px 0;
+}
+
+.releaseDate {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.overview {
+  font-style: italic;
+}
+
+@include responsive-max($screen-sm) {
+  .thumbnailArea {
+    width: 100px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+}

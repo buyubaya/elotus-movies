@@ -1,0 +1,42 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+$top-section-height: 300px;
+
+.container {
+  display: block;
+}
+
+.topSectionArea {
+  height: calc(100vh / 2.5);
+  min-height: $top-section-height;
+  max-height: 360px;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 48px;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.subtitle {
+  font-size: 2em;
+  font-weight: 600;
+  color: #fff;
+}
+
+@include responsive-max($screen-md) {
+  .topSectionArea {
+    font-size: 10px;
+    padding: 0 24px;
+  }
+}

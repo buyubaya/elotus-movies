@@ -1,0 +1,23 @@
+@import 'styles';
+
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 45;
+  transform: translateY(0);
+  transition: transform 0.3s;
+
+  &.shouldShow {
+    transform: translateY(0);
+  }
+
+  &.shouldHide {
+    transform: translateY(calc(-100% - 1px));
+  }
+}
+
+.placeholderDiv {
+  width: 100%;
+  background: $bg-primary;
+}

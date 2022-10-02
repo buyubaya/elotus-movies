@@ -1,0 +1,109 @@
+@import 'styles';
+
+.topSectionArea {
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to right, rgba(31.5, 10.5, 10.5, 1) 150px, rgba(31.5, 10.5, 10.5, 0.84) 100%);
+  color: #fff;
+  padding: 24px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.thumbnailArea {
+  overflow: hidden;
+  min-width: 300px;
+  max-width: 100%;
+}
+
+.thumbnailImg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.contentArea {
+  width: 100%;
+  padding: 24px 0 0 24px;
+  background-position: top left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.titleArea {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 2.2rem;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.buttonsArea {
+  display: flex;
+  padding: 12px 0 24px 0;
+}
+
+.userScore {
+  cursor: pointer;
+  transition: transform 0.15s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.tagline {
+  font-size: 1.1em;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.bigLabel {
+  font-size: 1.3rem;
+}
+
+.overviewSp {
+  padding-top: 24px;
+}
+
+@include responsive-max($screen-lg) {
+  .thumbnailArea {
+    min-width: 200px;
+  }
+}
+
+@include responsive-max($screen-sm) {
+  .wrapper {
+    display: block;
+  }
+
+  .contentArea {
+    padding-left: 0;
+  }
+
+  .thumbnailArea {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .titleArea {
+    margin-bottom: 0;
+  }
+
+  .subtitle {
+    margin-bottom: 0;
+  }
+
+  .buttonsArea {
+    padding: 12px 0;
+  }
+}

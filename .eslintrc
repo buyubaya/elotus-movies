@@ -1,0 +1,100 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "useJSXTextNode": true,
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "tsx": true
+    },
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "src",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "rootDirs": ["src", "stories"]
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:css-modules/recommended"
+  ],
+  "plugins": ["css-modules", "unused-imports", "react-hooks", "@typescript-eslint", "prettier", "jest"],
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/member-delimiter-style": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "react/prop-types": 0,
+    "indent": ["error", 2, { "SwitchCase": 1 }],
+    // "linebreak-style": ["warn", "unix"],
+    "quotes": ["error", "single"],
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-console": "warn",
+    "object-curly-spacing": "off",
+    "array-bracket-spacing": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": ["function-declaration", "function-expression", "arrow-function"],
+        "unnamedComponents": ["function-expression", "arrow-function"]
+      }
+    ],
+    "react/jsx-boolean-value": "off",
+    "react/jsx-uses-react": 1,
+    "react/react-in-jsx-scope": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-unused-vars": "warn",
+    "no-underscore-dangle": "off",
+    "unused-imports/no-unused-imports": "error",
+    "implicit-arrow-linebreak": "off",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {},
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["src/", "node_modules"]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}

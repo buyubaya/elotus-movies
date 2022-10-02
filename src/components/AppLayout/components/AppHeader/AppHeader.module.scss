@@ -1,0 +1,52 @@
+@import 'styles';
+
+.headerWrapper {
+  background: $bg-primary;
+  padding: 0;
+  color: #fff;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.leftArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logoArea {
+  display: block;
+}
+
+.logoImg {
+  max-width: 100%;
+}
+
+.rightArea {
+  display: block;
+}
+
+.smallSearchArea {
+  padding: 12px 24px;
+  background: $bg-primary;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+@include responsive-max($screen-sm) {
+  .logoArea {
+    width: 100px;
+  }
+}

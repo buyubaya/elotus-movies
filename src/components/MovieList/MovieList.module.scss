@@ -1,0 +1,15 @@
+.movieListArea {
+  margin-bottom: 24px;
+
+  &.isGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+  }
+
+  &.isList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

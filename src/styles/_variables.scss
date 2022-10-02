@@ -1,0 +1,25 @@
+$bg-primary: var(--tmdDarkBlue, rgb(3, 37, 65));
+
+$cl-primary: #39424e;
+$cl-secondary: #b7c9cc;
+
+$fs-primary: 14px;
+
+$app-header-height: 64px;
+
+// Screens
+$breakpoints: (
+  xxl: 1600,
+  xl: 1200,
+  lg: 992px,
+  md: 768px,
+  sm: 576px,
+  xs: 480px,
+);
+
+$screen-xs: map-get($breakpoints, 'xs');
+$screen-sm: map-get($breakpoints, 'sm');
+$screen-md: map-get($breakpoints, 'md');
+$screen-lg: map-get($breakpoints, 'lg');
+$screen-xl: map-get($breakpoints, 'xl');
+$screen-xxl: map-get($breakpoints, 'xxl');

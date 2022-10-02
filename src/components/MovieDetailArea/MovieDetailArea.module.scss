@@ -1,0 +1,33 @@
+@import 'styles';
+
+.detailTitle {
+  font-weight: 700;
+  font-size: 2rem;
+  border-bottom: 2px solid $cl-primary;
+  margin-bottom: 24px;
+}
+
+.detailInfoRow {
+  display: flex;
+  padding: 8px 0;
+}
+
+.detailInfoLabel {
+  flex: 0 1 200px;
+  font-weight: 600;
+}
+
+.detailInfoContent {
+  flex: 1;
+  padding-left: 12px;
+}
+
+@include responsive-max($screen-sm) {
+  .detailInfoRow {
+    display: block;
+  }
+
+  .detailInfoContent {
+    padding-left: 0;
+  }
+}

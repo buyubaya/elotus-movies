@@ -1,0 +1,25 @@
+@import 'styles/variables';
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $bg-primary;
+  padding: 4px;
+
+  :global {
+    .ant-progress-inner {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    .ant-progress-text {
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.4em;
+    }
+  }
+}
