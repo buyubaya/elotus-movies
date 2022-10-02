@@ -1,8 +1,8 @@
 import { IMovieDetail } from '@/apis/movieDetail/types';
 import { Skeleton } from 'antd';
 import React, { ReactNode } from 'react';
-import CommonContainer from '../CommonContainer';
-import s from './MovieDetailArea.module.scss';
+import CommonContainer from '../../../../components/CommonContainer';
+import s from './MovieDetailInformationArea.module.scss';
 
 function DetailInfoRow({ label, children }: { label?: string; children?: ReactNode }) {
   return (
@@ -13,12 +13,12 @@ function DetailInfoRow({ label, children }: { label?: string; children?: ReactNo
   );
 }
 
-interface IMovieDetailAreaProps {
+interface IMovieDetailInformationAreaProps {
   movieDetail: IMovieDetail | null;
   isLoading?: boolean;
 }
 
-function MovieDetailArea({ movieDetail, isLoading }: IMovieDetailAreaProps) {
+function MovieDetailInformationArea({ movieDetail, isLoading }: IMovieDetailInformationAreaProps) {
   if (!movieDetail || isLoading) {
     return (
       <CommonContainer>
@@ -52,4 +52,4 @@ function MovieDetailArea({ movieDetail, isLoading }: IMovieDetailAreaProps) {
   );
 }
 
-export default MovieDetailArea;
+export default MovieDetailInformationArea;

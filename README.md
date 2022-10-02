@@ -32,7 +32,7 @@ The following **additional** features are implemented:
 - [x] Add tabs of **Popular** and **Upcoming** movies.
 - [x] Implement pagination.
 - [x] Implement progress bar.
-- [x] Implement Header animation when scrolling.
+- [x] Implement header animation when scrolling.
 
 ## Video Walkthrough
 

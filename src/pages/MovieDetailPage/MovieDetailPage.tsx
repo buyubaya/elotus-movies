@@ -1,6 +1,6 @@
-import MovieDetailArea from '@/components/MovieDetailArea';
+import MovieDetailInformationArea from '@/pages/MovieDetailPage/components/MovieDetailInformationArea';
 import React from 'react';
-import MovieDetailSection from './components/MovieDetailSection';
+import MovieDetailTopSection from './components/MovieDetailTopSection';
 import { useMovieDetail } from './hooks/useMovieDetail';
 import s from './MovieDetailPage.module.scss';
 
@@ -9,10 +9,10 @@ function MovieDetailPage() {
 
   return (
     <div className={s.container}>
-      <MovieDetailSection movieDetail={movieDetail || null} isLoading={isLoading} />
+      <MovieDetailTopSection movieDetail={movieDetail || null} isLoading={isLoading} />
 
       <div className={s.moreDetailArea}>
-        <MovieDetailArea movieDetail={movieDetail || null} isLoading={isLoading} />
+        <MovieDetailInformationArea movieDetail={movieDetail || null} isLoading={isLoading} />
       </div>
     </div>
   );

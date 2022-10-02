@@ -40,8 +40,10 @@ function MovieListPage() {
           backgroundImage: `linear-gradient(to right, rgba(var(--tmdbDarkBlue), 0.8) 0%, rgba(var(--tmdbDarkBlue), 0) 100%), url("${DEFAULT_TOP_BG}")`,
         }}
       >
-        <h2 className={s.title}>Welcome</h2>
-        <h3 className={s.subtitle}>Millions of movies, TV shows and people to discover. Explore now.</h3>
+        <CommonContainer>
+          <h2 className={s.title}>Welcome</h2>
+          <h3 className={s.subtitle}>Millions of movies, TV shows and people to discover. Explore now.</h3>
+        </CommonContainer>
       </div>
     );
   };
