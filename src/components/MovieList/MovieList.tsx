@@ -18,6 +18,7 @@ interface IMovieListProps {
   list: IListMovieInfo[];
   isLoading?: boolean;
   error?: string;
+  showGoToHomeBtn?: boolean;
   onRetry?: () => void | Promise<void>;
   onPageChange?: (newPage: number) => void;
 }
@@ -28,6 +29,7 @@ function MovieList({
   paginationInfo,
   isLoading,
   error,
+  showGoToHomeBtn,
   onRetry,
   onPageChange,
 }: IMovieListProps) {
@@ -48,7 +50,7 @@ function MovieList({
   }
 
   if (error) {
-    return <CommonErrorComponent onRetry={onRetry} />;
+    return <CommonErrorComponent showGoToHomeBtn={showGoToHomeBtn} onRetry={onRetry} />;
   }
 
   if (!list?.length) {

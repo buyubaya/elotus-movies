@@ -16,6 +16,7 @@ function MovieListWrapper({ layoutMode, listType }: { layoutMode?: LayoutMode; l
       paginationInfo={paginationInfo}
       isLoading={isMovieListLoading}
       error={movieListError}
+      showGoToHomeBtn={false}
       dispatchFetchMovieList={dispatchFetchMovieList}
     />
   );

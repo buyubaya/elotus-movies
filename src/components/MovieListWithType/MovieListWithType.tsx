@@ -13,6 +13,7 @@ interface IMovieListWithTypeProps {
   list: IListMovieInfo[];
   isLoading?: boolean;
   error?: string;
+  showGoToHomeBtn?: boolean;
   dispatchFetchMovieList?: () => void;
 }
 
@@ -23,6 +24,7 @@ function MovieListWithType({
   paginationInfo: initialPaginationInfo,
   isLoading,
   error: initialError,
+  showGoToHomeBtn,
   dispatchFetchMovieList,
 }: IMovieListWithTypeProps) {
   //
@@ -82,6 +84,7 @@ function MovieListWithType({
         }}
         isLoading={isLoading}
         error={displayError}
+        showGoToHomeBtn={showGoToHomeBtn}
         onPageChange={handlePageChange}
         onRetry={initialError ? dispatchFetchMovieList : handleRetry}
       />
