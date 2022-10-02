@@ -2,7 +2,7 @@
 
 **Movies** is a movies app using the [The Movie Database API](https://developers.themoviedb.org/3).
 
-Time spent: **HH** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -39,6 +39,7 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 > Please record screen to a GIF file and attach link here
+> ![](https://github.com/buyubaya/elotus-movies/blob/main/walkthrough.gif)
 
 ## License
 
