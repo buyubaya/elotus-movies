@@ -1,4 +1,13 @@
-$bg-primary: var(--tmdDarkBlue, rgb(3, 37, 65));
+:root {
+  --lightGrey: 227, 227, 227;
+  --darkerGrey: 200, 200, 200;
+  --darkBlue: 3, 37, 65;
+  --lightBlue: 1, 180, 228;
+  --lighterGreen: 192, 254, 207;
+  --lightGreen: 30, 213, 169;
+}
+
+$bg-primary: rgb(var(--darkBlue));
 
 $cl-primary: #39424e;
 $cl-secondary: #b7c9cc;

@@ -7,8 +7,7 @@ import MovieListWrapper from './components/MovieListWrapper';
 import s from './MovieListPage.module.scss';
 import { LayoutMode } from './types';
 
-const DEFAULT_TOP_BG =
-  'https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/8bcoRX3hQRHufLPSDREdvr3YMXx.jpg';
+const DEFAULT_TOP_BG = '/images/main-bg.jpg';
 
 const MOVIE_TABS_DATA = [
   {
@@ -37,7 +36,7 @@ function MovieListPage() {
       <div
         className={s.topSectionArea}
         style={{
-          backgroundImage: `linear-gradient(to right, rgba(var(--tmdbDarkBlue), 0.8) 0%, rgba(var(--tmdbDarkBlue), 0) 100%), url("${DEFAULT_TOP_BG}")`,
+          backgroundImage: `linear-gradient(to right, rgba(var(--darkBlue), 0.8) 0%, rgba(var(--darkBlue), 0) 100%), url("${DEFAULT_TOP_BG}")`,
         }}
       >
         <CommonContainer>
