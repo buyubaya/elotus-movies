@@ -1,3 +1,4 @@
+import { callApi } from '@/core/callApi';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getMovieDetailAction, getRecommendedMoviesAction } from '@/redux/slices/movieDetail/movieDetail.actions';
 import {
@@ -33,6 +34,8 @@ export const useMovieDetail = () => {
         appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '' }));
         appDispatch(getRecommendedMoviesAction({ movieId: routeParams.movieId || '' }));
       });
+
+      callApi(`${process.env.REACT_APP_MOVIE_API_URL}/movie/${routeParams.movieId}/credits`).then(console.log);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [routeParams.movieId]);

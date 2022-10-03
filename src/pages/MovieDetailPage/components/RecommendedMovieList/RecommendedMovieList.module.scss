@@ -1,32 +1,5 @@
 @import 'styles/mixins';
 
-.container {
-  position: relative;
-
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    width: 50px;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #fff 100%);
-  }
-}
-
-.outer {
-  @include custom-scrollbar();
-
-  display: block;
-  overflow: auto;
-}
-
-.inner {
-  display: flex;
-  gap: 20px;
-}
-
 .movieItem {
   min-width: 150px;
   max-width: 150px;
