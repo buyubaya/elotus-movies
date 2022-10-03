@@ -50,7 +50,7 @@ export const useMovieDetail = () => {
         appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '' }))
           .unwrap()
           .catch(() => {
-            navigate(APP_ROUTES_CONFIG.HOME.getRoute());
+            navigate(APP_ROUTES_CONFIG.NOT_FOUND.getRoute());
           });
         appDispatch(getRecommendedMoviesAction({ movieId: routeParams.movieId || '' }));
         appDispatch(getCreditsAction({ movieId: routeParams.movieId || '' }));
