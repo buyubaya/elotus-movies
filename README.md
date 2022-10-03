@@ -33,6 +33,7 @@ The following **additional** features are implemented:
 - [x] Implement pagination.
 - [x] Implement progress bar.
 - [x] Implement header animation when scrolling.
+- [x] Add movie detail recommendations section.
 
 ## Video Walkthrough
 

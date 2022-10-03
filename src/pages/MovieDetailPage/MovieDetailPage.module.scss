@@ -1,7 +1,16 @@
+@import 'styles/variables';
+
 .container {
   display: block;
 }
 
-.moreDetailArea {
+.detailTitle {
+  font-weight: 700;
+  font-size: 2rem;
+  border-bottom: 2px solid $cl-primary;
+  margin-bottom: 24px;
+}
+
+.recommndedMoviesArea {
   display: block;
 }

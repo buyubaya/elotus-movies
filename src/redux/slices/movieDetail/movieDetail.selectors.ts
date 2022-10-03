@@ -9,3 +9,9 @@ export const selectMovieDetailIsLoading = (movieId: string) => (rootState: AppRo
 
 export const selectMovieDetailError = (movieId: string) => (rootState: AppRootState) =>
   rootState.movieDetail?.errorMap?.[movieId];
+
+export const selectRecommendedMovieList = (movieId: string) => (rootState: AppRootState) =>
+  rootState.movieDetail.recommendations?.[movieId]?.data;
+
+export const selectRecommendedMovieListIsLoading = (movieId: string) => (rootState: AppRootState) =>
+  rootState.movieDetail.recommendations?.[movieId]?.status === 'LOADING';

@@ -1,7 +1,7 @@
 import { IMovieDetail } from '@/apis/movieDetail/types';
 import { AppRootState } from '@/redux/store';
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { getMovieDetailAction } from './movieDetail.actions';
+import { getMovieDetailAction, getRecommendedMoviesAction } from './movieDetail.actions';
 import { IMovieDetailReducerState } from './types';
 
 export const MOVIE_DETAIL_SLICE_NAME = 'movieDetail';
@@ -37,6 +37,46 @@ const movieDetailSlice = createSlice({
       .addCase(getMovieDetailAction.rejected, (state, action) => {
         state.statusMap[action.meta.arg.movieId] = 'ERROR';
         state.errorMap[action.meta.arg.movieId] = action.error?.message;
+      });
+
+    builder
+      .addCase(getRecommendedMoviesAction.pending, (state, action) => {
+        if (!state.recommendations) {
+          state.recommendations = {};
+        }
+        if (!state.recommendations[action.meta.arg.movieId]) {
+          state.recommendations[action.meta.arg.movieId] = {
+            status: 'LOADING',
+            data: [],
+          };
+        } else {
+          state.recommendations[action.meta.arg.movieId].status = 'LOADING';
+        }
+      })
+      .addCase(getRecommendedMoviesAction.fulfilled, (state, action) => {
+        if (!state.recommendations) {
+          state.recommendations = {};
+        }
+        if (!state.recommendations[action.meta.arg.movieId]) {
+          state.recommendations[action.meta.arg.movieId] = {
+            status: 'SUCCESS',
+          };
+        } else {
+          state.recommendations[action.meta.arg.movieId].status = 'SUCCESS';
+        }
+        state.recommendations[action.meta.arg.movieId].data = action.payload?.results || [];
+      })
+      .addCase(getRecommendedMoviesAction.rejected, (state, action) => {
+        if (!state.recommendations) {
+          state.recommendations = {};
+        }
+        if (!state.recommendations[action.meta.arg.movieId]) {
+          state.recommendations[action.meta.arg.movieId] = {
+            status: 'ERROR',
+          };
+        } else {
+          state.recommendations[action.meta.arg.movieId].status = 'ERROR';
+        }
       });
   },
 });

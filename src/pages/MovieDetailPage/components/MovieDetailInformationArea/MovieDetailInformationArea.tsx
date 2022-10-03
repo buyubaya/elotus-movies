@@ -1,7 +1,6 @@
 import { IMovieDetail } from '@/apis/movieDetail/types';
 import { Skeleton } from 'antd';
 import React, { ReactNode } from 'react';
-import CommonContainer from '../../../../components/CommonContainer';
 import s from './MovieDetailInformationArea.module.scss';
 
 function DetailInfoRow({ label, children }: { label?: string; children?: ReactNode }) {
@@ -21,10 +20,10 @@ interface IMovieDetailInformationAreaProps {
 function MovieDetailInformationArea({ movieDetail, isLoading }: IMovieDetailInformationAreaProps) {
   if (!movieDetail || isLoading) {
     return (
-      <CommonContainer>
+      <div>
         <Skeleton active />
         <Skeleton active />
-      </CommonContainer>
+      </div>
     );
   }
 
@@ -37,18 +36,14 @@ function MovieDetailInformationArea({ movieDetail, isLoading }: IMovieDetailInfo
   };
 
   return (
-    <CommonContainer>
-      <div className={s.detailTitle}>More Information</div>
-
-      <dl>
-        <DetailInfoRow label={'Status'}>{movieDetail.status}</DetailInfoRow>
-        <DetailInfoRow label={'Original Language'}>{movieDetail.originalLanguage?.toUpperCase()}</DetailInfoRow>
-        <DetailInfoRow label={'Budget'}>{movieDetail.budget}</DetailInfoRow>
-        <DetailInfoRow label={'Revenue'}>{movieDetail.revenue}</DetailInfoRow>
-        <DetailInfoRow label={'Production Companies'}>{getDisplayProductionCompanies()}</DetailInfoRow>
-        <DetailInfoRow label={'Production Countries'}>{getDisplayProductionCountries()}</DetailInfoRow>
-      </dl>
-    </CommonContainer>
+    <dl>
+      <DetailInfoRow label={'Status'}>{movieDetail.status}</DetailInfoRow>
+      <DetailInfoRow label={'Original Language'}>{movieDetail.originalLanguage?.toUpperCase()}</DetailInfoRow>
+      <DetailInfoRow label={'Budget'}>{movieDetail.budget}</DetailInfoRow>
+      <DetailInfoRow label={'Revenue'}>{movieDetail.revenue}</DetailInfoRow>
+      <DetailInfoRow label={'Production Companies'}>{getDisplayProductionCompanies()}</DetailInfoRow>
+      <DetailInfoRow label={'Production Countries'}>{getDisplayProductionCountries()}</DetailInfoRow>
+    </dl>
   );
 }
 

@@ -1,4 +1,4 @@
-import { IMovieDetail } from '@/apis/movieDetail/types';
+import { IMovieDetail, IRecommendedMovieInfo } from '@/apis/movieDetail/types';
 import { EntityState } from '@reduxjs/toolkit';
 
 export interface IMovieDetailReducerState {
@@ -9,4 +9,10 @@ export interface IMovieDetailReducerState {
     [movieId: string]: string | undefined;
   };
   data: EntityState<IMovieDetail>;
+  recommendations?: {
+    [movieId: string]: {
+      status: 'LOADING' | 'SUCCESS' | 'ERROR' | undefined;
+      data?: IRecommendedMovieInfo[] | undefined;
+    };
+  };
 }
