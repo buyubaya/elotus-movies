@@ -27,6 +27,9 @@ const movieDetailSlice = createSlice({
     builder
       .addCase(getMovieDetailAction.pending, (state, action) => {
         state.statusMap[action.meta.arg.movieId] = 'LOADING';
+        if (state.errorMap?.[action.meta.arg.movieId]) {
+          delete state.errorMap[action.meta.arg.movieId];
+        }
       })
       .addCase(getMovieDetailAction.fulfilled, (state, action) => {
         state.statusMap[action.meta.arg.movieId] = 'SUCCESS';

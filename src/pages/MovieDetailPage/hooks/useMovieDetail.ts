@@ -1,3 +1,4 @@
+import { APP_ROUTES_CONFIG } from '@/constants/routes';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   getCreditsAction,
@@ -15,9 +16,10 @@ import {
 } from '@/redux/slices/movieDetail/movieDetail.selectors';
 import { useEffect } from 'react';
 import { batch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 export const useMovieDetail = () => {
+  const navigate = useNavigate();
   const routeParams = useParams();
 
   const appDispatch = useAppDispatch();
@@ -44,8 +46,12 @@ export const useMovieDetail = () => {
 
   useEffect(() => {
     if (routeParams.movieId) {
-      batch(() => {
-        appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '', force: true }));
+      batch(async () => {
+        appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '' }))
+          .unwrap()
+          .catch(() => {
+            navigate(APP_ROUTES_CONFIG.HOME.getRoute());
+          });
         appDispatch(getRecommendedMoviesAction({ movieId: routeParams.movieId || '' }));
         appDispatch(getCreditsAction({ movieId: routeParams.movieId || '' }));
       });
