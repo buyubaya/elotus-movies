@@ -45,7 +45,7 @@ export const useMovieDetail = () => {
   useEffect(() => {
     if (routeParams.movieId) {
       batch(() => {
-        appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '' }));
+        appDispatch(getMovieDetailAction({ movieId: routeParams.movieId || '', force: true }));
         appDispatch(getRecommendedMoviesAction({ movieId: routeParams.movieId || '' }));
         appDispatch(getCreditsAction({ movieId: routeParams.movieId || '' }));
       });

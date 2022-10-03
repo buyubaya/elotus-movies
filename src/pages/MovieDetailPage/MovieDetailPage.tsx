@@ -1,4 +1,6 @@
+import RedirectRoute from '@/components/AppRoutes/comnponents/RedirectRoute';
 import CommonContainer from '@/components/CommonContainer';
+import { APP_ROUTES_CONFIG } from '@/constants/routes';
 import MovieDetailInformationArea from '@/pages/MovieDetailPage/components/MovieDetailInformationArea';
 import React from 'react';
 import CreditList from './components/CreditList';
@@ -8,8 +10,19 @@ import { useMovieDetail } from './hooks/useMovieDetail';
 import s from './MovieDetailPage.module.scss';
 
 function MovieDetailPage() {
-  const { movieDetail, isLoading, recommendedMovieList, isRecommendedMovieListLoading, credits, isCreditsLoading } =
-    useMovieDetail();
+  const {
+    movieDetail,
+    isLoading,
+    error,
+    recommendedMovieList,
+    isRecommendedMovieListLoading,
+    credits,
+    isCreditsLoading,
+  } = useMovieDetail();
+
+  if (error) {
+    return <RedirectRoute to={APP_ROUTES_CONFIG.NOT_FOUND.getRoute()} />;
+  }
 
   return (
     <div className={s.container}>
