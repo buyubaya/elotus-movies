@@ -1,7 +1,7 @@
 import { IRecommendedMovieInfo } from '@/apis/movieDetail/types';
 import MovieListItem from '@/components/MovieList/components/MovieListItem';
 import SkeletonImage from '@/components/SkeletonImage';
-import { Skeleton } from 'antd';
+import { Empty, Skeleton } from 'antd';
 import React from 'react';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
@@ -25,6 +25,10 @@ function RecommendedMovieList({ list, isLoading }: { list: IRecommendedMovieInfo
         </div>
       </div>
     );
+  }
+
+  if (!list?.length) {
+    return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
   }
 
   return (
