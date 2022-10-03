@@ -1,7 +1,7 @@
 import { IMovieDetail } from '@/apis/movieDetail/types';
 import { AppRootState } from '@/redux/store';
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { getMovieDetailAction, getRecommendedMoviesAction } from './movieDetail.actions';
+import { getCreditsAction, getMovieDetailAction, getRecommendedMoviesAction } from './movieDetail.actions';
 import { IMovieDetailReducerState } from './types';
 
 export const MOVIE_DETAIL_SLICE_NAME = 'movieDetail';
@@ -76,6 +76,45 @@ const movieDetailSlice = createSlice({
           };
         } else {
           state.recommendations[action.meta.arg.movieId].status = 'ERROR';
+        }
+      });
+
+    builder
+      .addCase(getCreditsAction.pending, (state, action) => {
+        if (!state.credits) {
+          state.credits = {};
+        }
+        if (!state.credits[action.meta.arg.movieId]) {
+          state.credits[action.meta.arg.movieId] = {
+            status: 'LOADING',
+          };
+        } else {
+          state.credits[action.meta.arg.movieId].status = 'LOADING';
+        }
+      })
+      .addCase(getCreditsAction.fulfilled, (state, action) => {
+        if (!state.credits) {
+          state.credits = {};
+        }
+        if (!state.credits[action.meta.arg.movieId]) {
+          state.credits[action.meta.arg.movieId] = {
+            status: 'SUCCESS',
+          };
+        } else {
+          state.credits[action.meta.arg.movieId].status = 'SUCCESS';
+        }
+        state.credits[action.meta.arg.movieId].data = action.payload;
+      })
+      .addCase(getCreditsAction.rejected, (state, action) => {
+        if (!state.credits) {
+          state.credits = {};
+        }
+        if (!state.credits[action.meta.arg.movieId]) {
+          state.credits[action.meta.arg.movieId] = {
+            status: 'ERROR',
+          };
+        } else {
+          state.credits[action.meta.arg.movieId].status = 'ERROR';
         }
       });
   },

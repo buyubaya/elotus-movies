@@ -29,7 +29,7 @@ export const getImgProxyUrl = (
     type,
     size,
   }: {
-    type: 'poster' | 'backdrop';
+    type: 'poster' | 'backdrop' | 'profile';
     size: number;
   }
 ) => {
@@ -52,13 +52,16 @@ export const getImgProxyUrl = (
     return DUMMY_IMAGE;
   }
 
-  if (type === 'poster' || type === 'backdrop') {
+  if (type === 'poster' || type === 'backdrop' || type === 'profile') {
     let sizeList: string[] | null = null;
     if (type === 'poster') {
       sizeList = configuration?.posterSizes || [];
     }
     if (type === 'backdrop') {
       sizeList = configuration?.backdropSizes || [];
+    }
+    if (type === 'profile') {
+      sizeList = configuration?.profileSizes || [];
     }
 
     if (!sizeList) {

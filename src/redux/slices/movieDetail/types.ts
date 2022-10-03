@@ -1,4 +1,4 @@
-import { IMovieDetail, IRecommendedMovieInfo } from '@/apis/movieDetail/types';
+import { ICreditInfo, IMovieDetail, IRecommendedMovieInfo } from '@/apis/movieDetail/types';
 import { EntityState } from '@reduxjs/toolkit';
 
 export interface IMovieDetailReducerState {
@@ -13,6 +13,12 @@ export interface IMovieDetailReducerState {
     [movieId: string]: {
       status: 'LOADING' | 'SUCCESS' | 'ERROR' | undefined;
       data?: IRecommendedMovieInfo[] | undefined;
+    };
+  };
+  credits?: {
+    [movieId: string]: {
+      status: 'LOADING' | 'SUCCESS' | 'ERROR' | undefined;
+      data?: ICreditInfo;
     };
   };
 }

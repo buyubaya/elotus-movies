@@ -2,7 +2,7 @@
 
 **Movies** is a movies app using the [The Movie Database API](https://developers.themoviedb.org/3).
 
-Time spent: **18** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -34,6 +34,7 @@ The following **additional** features are implemented:
 - [x] Implement progress bar.
 - [x] Implement header animation when scrolling.
 - [x] Add movie detail recommendations section.
+- [x] Add movie detail credits section.
 
 ## Video Walkthrough
 

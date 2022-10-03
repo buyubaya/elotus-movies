@@ -15,3 +15,9 @@ export const selectRecommendedMovieList = (movieId: string) => (rootState: AppRo
 
 export const selectRecommendedMovieListIsLoading = (movieId: string) => (rootState: AppRootState) =>
   rootState.movieDetail.recommendations?.[movieId]?.status === 'LOADING';
+
+export const selectCredits = (movieId: string) => (rootState: AppRootState) =>
+  rootState.movieDetail.credits?.[movieId]?.data;
+
+export const selectCreditsIsLoading = (movieId: string) => (rootState: AppRootState) =>
+  rootState.movieDetail.credits?.[movieId]?.status === 'LOADING';

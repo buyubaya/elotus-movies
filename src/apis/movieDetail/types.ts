@@ -1,3 +1,4 @@
+import { Cast } from '@/types/entity/Cast/types';
 import { IMovie } from '@/types/entity/Movie/types';
 import { IListMovieInfo } from '../movieList/types';
 
@@ -23,3 +24,11 @@ export interface IGetRecommendedMovieResponse {
 }
 
 export type IRecommendedMovieInfo = IListMovieInfo;
+
+export interface IGetCreditsResponse {
+  id: number;
+  cast: Cast[];
+  crew: Cast[];
+}
+
+export type ICreditInfo = Pick<IGetCreditsResponse, 'cast' | 'crew'>;

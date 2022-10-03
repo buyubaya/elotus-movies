@@ -1,0 +1,16 @@
+@import 'styles/mixins';
+
+.movieItem {
+  min-width: 150px;
+  max-width: 150px;
+}
+
+.castName {
+  font-weight: 700;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.charactername {
+  font-style: italic;
+}

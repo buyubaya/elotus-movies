@@ -1,3 +1,4 @@
+import { getCredits } from '@/apis/movieDetail/getCredits';
 import { getMovieDetail } from '@/apis/movieDetail/getMovieDetail';
 import { getRecommendedMovies } from '@/apis/movieDetail/getRecommendedMovies';
 import { IGetMovieDetailRequestQuery } from '@/apis/movieDetail/types';
@@ -57,6 +58,34 @@ export const getRecommendedMoviesAction = createAsyncThunk(
       const currentState = getState() as AppRootState;
 
       if (currentState.movieDetail.recommendations?.[movieId]?.status === 'LOADING') {
+        return false;
+      }
+
+      return true;
+    },
+  }
+);
+
+interface IGetCreditsAction {
+  movieId: string;
+  force?: boolean;
+}
+
+export const getCreditsAction = createAsyncThunk(
+  'movieDetail/getCreditsAction',
+  async ({ movieId }: IGetCreditsAction) => {
+    const response = await getCredits(movieId);
+    return response;
+  },
+  {
+    condition: ({ movieId, force }, { getState }) => {
+      if (force) {
+        return true;
+      }
+
+      const currentState = getState() as AppRootState;
+
+      if (currentState.movieDetail.credits?.[movieId]?.status === 'LOADING') {
         return false;
       }
 
